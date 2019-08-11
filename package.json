@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "TRAVIS_SURGE_TOKEN=6e7b9c223edf69e0711f04efa0d3b67c surge ./dist xbl.surge.sh"
+    "deploy": "surge ./dist xbl.surge.sh"
   },
   "dependencies": {
     "vue": "^2.6.10",

@@ -3,8 +3,9 @@ pipeline {
     tools {nodejs "node"}
     environment {
         CI = 'true' 
+        TRAVIS_SURGE_TOKEN = '6e7b9c223edf69e0711f04efa0d3b67c'
     }
-    
+
     triggers{
         pollSCM('*/1 * * * *')
     }
