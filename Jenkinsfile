@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage('Install') {
+        stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
@@ -28,22 +28,17 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh 'npm run deploy'
-            }
-        }
-
         stage('Tag') {
             steps {
                 sh "npm version v1.0.${env.BUILD_NUMBER} -git-tag-version false"
+                sh 'npm pack' 
+                archiveArtifacts artifacts: '*.tgz', fingerprint: true
             }
         }
 
-        stage('Dist') {
+        stage('Deploy') {
             steps {
-                sh 'npm pack' 
-                archiveArtifacts artifacts: '*.tgz', fingerprint: true
+                sh 'npm run deploy'
                 cleanWs()
             }
         }

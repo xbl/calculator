@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <input type="number" v-model="param" class="param"> + 11 = <span class="result">{{ result }}</span>
+    <input type="number" v-model="param" class="param"> + 10 = <span class="result">{{ result }}</span>
     <div>
       <button @click="calc" class="submit">计算</button>
     </div>
